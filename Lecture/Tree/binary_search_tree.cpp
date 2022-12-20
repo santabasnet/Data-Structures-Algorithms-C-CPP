@@ -4,6 +4,18 @@
  * By Santa Basnet.
  * Everest Engineering College.
  * Date: 2021-12-05
+ * Example:
+ *
+ *                     110
+ *                  /       \
+ *                20        200
+ *             /      \   /     \
+ *           10      30  150    330
+ *
+ * Output:
+ *  Inorder Traversal:			  10	  20	  30	 110	 150	 200	 330
+ *  Preorder Traversal:			 110	  20	  10	  30	 200	 150	 330
+ *  Postorder Traversal:		  10	  30	  20	 150	 330	 200	 110 
  */
 
 #include <cstdio>
