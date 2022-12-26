@@ -3,7 +3,7 @@
  *
  * 1. Binary search tree.
  * 2. Balance the binary search tree.
- * 3. Balance factor
+ * 3. Balance factor: Height of Left sub-tree - Height of right sub-tree.
  * 4. Height of the sub-tree.
  *
  * By Santa Basnet.
@@ -12,6 +12,7 @@
  */
 
 #include <malloc.h>
+#include <stdio.h>
 
 /**
  * AVL Node Representation.
@@ -117,7 +118,103 @@ static struct AVLNode *rotateRight(struct AVLNode *rootNode) {
 }
 
 /**
- * Make balance tree.
+ * Make balance tree: requires 4 rotations.
+ * 1. RR rotation:
+ *  (A)
+ *      \     <--┐
+ *       (B)     |
+ *         \
+ *          (C)
+ *  Output:
+ *
+ *      (B)
+ *     /   \
+ *   (A)   (C)
+ *
+ * 2. LL Rotation
+ *          (A)
+ *  ┌-->   /
+ *  |   (B)
+ *      /
+ *    (C)
+ *  Output:
+ *        (B)
+ *       /   \
+ *     (C)   (A)
+ *
+ * 3. LR Rotation:
+ *           (A)
+ *         /
+ *       (B)
+ *         \
+ *          (C)
+ *
+ *    Output:
+ *
+ *      (a) Rotate C - B, counter clockwise.
+ *            (A)
+ *            /
+ *          (C)
+ *          /
+ *        (B)
+ *
+ *      (b) Rotate B - C - A, clockwise.
+ *
+ *             (C)
+ *            /   \
+ *          (B)    (A)
+ *
+ * 4. RL Rotation:
+ *         (A)
+ *            \
+ *             (B)
+ *            /
+ *          (C)
+ *
+ *    Output:
+ *
+ *      (a) Rotate C - B Clock wise.
+ *            (A)
+ *               \
+ *               (B)
+ *                  \
+ *                  (C)
+ *
+ *      (b) Rotate C - B - A, counter clockwise.
+ *
+ *             (B)
+ *            /   \
+ *          (A)    (C)
+ *
+ * Example:
+ *                (H)-2
+ *             /       \
+ *           (B)-2     (I)
+ *         /     \        \
+ *       (A)     (E)      (J)
+ *              /   \
+ *            (C)   (F)
+ *               \
+ *                (D)
+ *
+ *
+ *               (H)-2
+ *              /      \
+ *           (B)-2     (I)
+ *         /     \        \
+ *       (A)     (C)      (J)
+ *                 \
+ *                 (E)
+ *                /   \
+ *              (D)   (F)
+ *
+ *              (H)
+ *             /    \
+ *           (C)     (I)
+ *         /     \      \
+ *       (B)     (E)      (J)
+ *      /       /   \
+ *     (A)    (D)   (F)
  */
 static struct AVLNode *makeBalance(struct AVLNode *rootPointer, int data) {
     int balance = balanceFactorOf(rootPointer);
@@ -273,7 +370,7 @@ static struct AVLTree *initializeTree() {
 /**
  * Initialize Data, the characters for capital letters of English Alphabets.
  */
-const int MAX = 26;
+const int MAX = 8;
 
 static int *initializeData() {
     int *initialData = (int *) malloc(sizeof(int) * MAX);
