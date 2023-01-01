@@ -8,6 +8,34 @@
  * 2. Select minimum index of element and perform interchange operation.
  * 3. Process '2' goes till the last element.
  *
+ * Trace-out Example: Selection Sort
+ *
+ *  Iter 0 >>
+	0	100	50	80	90	10	200	70	20	30
+ * Iter 1 >>
+	0	10	50	80	90	100	200	70	20	30
+ * Iter 2 >>
+	0	10	20	80	90	100	200	70	50	30
+ * Iter 3 >>
+	0	10	20	30	90	100	200	70	50	80
+ * Iter 4 >>
+	0	10	20	30	50	100	200	70	90	80
+ * Iter 5 >>
+	0	10	20	30	50	70	200	100	90	80
+ * Iter 6 >>
+	0	10	20	30	50	70	80	100	90	200
+ * Iter 7 >>
+	0	10	20	30	50	70	80	90	100	200
+ * Iter 8 >>
+	0	10	20	30	50	70	80	90	100	200
+
+ * Stop.
+ *
+ * Time Complexity:
+ *  1. Base Case: O(n^2)
+ *  2. Average Case: O(n^2)
+ *  3. Worst Case: O(n^2)
+ *
  * By: Santa Basnet
  * Everest Engineering College.
  * Date: 2021-12-10
@@ -73,6 +101,8 @@ static struct Element *selectionSortWith(struct Element *elements, int size, Sor
             }
         }
         interChange((elements + minIndex), (elements + index));
+        //printf("\n* Iter %d >>\t", index);
+        //displayData(elements);
     }
     return elements;
 }

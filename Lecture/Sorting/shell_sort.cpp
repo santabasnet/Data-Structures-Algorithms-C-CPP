@@ -38,6 +38,46 @@
  * 3rd index, to 4, 5.
  * 4th index, to 5.
  *
+ * One more example with the current program example:
+ *
+ * Input Data >>
+ * 200	100	50	80	90	10	0	70	20	30
+ *
+ * Interval size: 5 >>
+	10	100	50	80	90	200	0	70	20	30
+	10	0	50	80	90	200	100	70	20	30
+	10	0	50	80	90	200	100	70	20	30
+	10	0	50	20	90	200	100	70	80	30
+	10	0	50	20	30	200	100	70	80	90
+ *
+ * Interval size: 2 >>
+	10	0	50	20	30	200	100	70	80	90
+	10	0	50	20	30	200	100	70	80	90
+	10	0	30	20	50	200	100	70	80	90
+	10	0	30	20	50	200	100	70	80	90
+	10	0	30	20	50	200	100	70	80	90
+	10	0	30	20	50	70	100	200	80	90
+	10	0	30	20	50	70	80	200	100	90
+	10	0	30	20	50	70	80	90	100	200
+ *
+ * Interval size: 1 >>
+	0	10	30	20	50	70	80	90	100	200
+	0	10	30	20	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+	0	10	20	30	50	70	80	90	100	200
+ *
+ * Stop.
+ *
+ * Time Complexity:
+ *  1. Base Case: O(n log(n))
+ *  2. Average Case: O(n log(n))
+ *  3. Worst Case: O(n^2)
+ *
  * By: Santa Basnet
  * Everest Engineering College.
  * Date: 2021-12-10
@@ -115,6 +155,8 @@ static struct Element *shellSortWith(struct Element *elements, int size, Sorting
             interChange((elements + counter), tempElement);
             free(tempElement);
         }
+
+
     }
     return elements;
 }

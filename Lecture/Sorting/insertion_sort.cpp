@@ -8,6 +8,27 @@
  *    with the first one.
  * 3. Process '2' goes till the last element.
  *
+ * Insertion Sort Trace-out Example:
+ *
+ * Input Data:
+ *
+ *  200	100	50	80	90	10	0	70	20	30
+ *
+ * Iter 1 >>		100	200	50	80	90	10	0	70	20	30
+ * Iter 2 >>		50	100	200	80	90	10	0	70	20	30
+ * Iter 3 >>		50	80	100	200	90	10	0	70	20	30
+ * Iter 4 >>		50	80	90	100	200	10	0	70	20	30
+ * Iter 5 >>		10	50	80	90	100	200	0	70	20	30
+ * Iter 6 >>		0	10	50	80	90	100	200	70	20	30
+ * Iter 7 >>		0	10	50	70	80	90	100	200	20	30
+ * Iter 8 >>		0	10	20	50	70	80	90	100	200	30
+ * Iter 9 >>		0	10	20	30	50	70	80	90	100	200
+ *
+ * Time Complexity:
+ *  1. Base Case: O(n)
+ *  2. Average Case: O(n^2)
+ *  3. Worst Case: O(n^2)
+ *
  * By: Santa Basnet
  * Everest Engineering College.
  * Date: 2021-12-10
@@ -75,11 +96,12 @@ static struct Element *insertionSortWith(struct Element *elements, int size, Sor
             shifter--;
         }
         (elements + shifter + 1)->item = keyItem->item;
+        //printf("\n* Iter %d >>\t", index);
+        displayData(elements);
         free(keyItem);
     }
     return elements;
 }
-
 
 /**
  * Input Data.
@@ -121,5 +143,6 @@ int main() {
     displayData(sortedData1);
 
     printf("\n------------------------------------------------------------------\n");
+
     return 1;
 }

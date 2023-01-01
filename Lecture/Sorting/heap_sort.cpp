@@ -11,6 +11,11 @@
  * 4. Max size of tree would be: 2^h, where h is the height of the tree.
  * 5. The empty tree or sub tree is given by -1.
  *
+ * Time Complexity:
+ *  1. Base Case: O(n log(n))
+ *  2. Average Case: O(n log(n))
+ *  3. Worst Case: O(n log(n))
+ *
  * By Santa Basnet.
  * Everest Engineering College.
  * Date: 2021-12-05
@@ -55,7 +60,7 @@ const int data[MAX_DATA] = {
  * Perform print operation of the array with display message.
  */
 void printData(int *array, int begin, int size, const char *message) {
-    printf(message);
+    printf("%s", message);
     for (int index = begin; index < size; index++)
         printf("| %3d ", array[index]);
     printf("|");
@@ -202,8 +207,7 @@ int main() {
     displayData();
 
     /** Perform Insertion Operation **/
-    for (int index = 0; index < MAX_DATA; index++)
-        insertInTree(data[index]);
+    for (int index = 0; index < MAX_DATA; index++)  insertInTree(data[index]);
     displayTree();
 
     /** Perform Delete and Display */
@@ -213,3 +217,18 @@ int main() {
     printf("\n");
     return 1;
 }
+
+/**
+ * Sample Program output:
+ *
+    Initial Data :
+    |  20 |  15 |  35 |  12 |  17 |  21 |  39 |  16 |  18 |  36 |  45 | 100 |   6 |
+
+    Tree Data :
+    | 100 |  39 |  45 |  17 |  36 |  35 |  21 |  12 |  16 |  15 |  18 |  20 |   6 |
+
+    Deleted 100, (the root element)
+
+    Tree Data :
+    |  45 |  39 |  35 |  17 |  36 |  20 |  21 |  12 |  16 |  15 |  18 |   6 |
+*/

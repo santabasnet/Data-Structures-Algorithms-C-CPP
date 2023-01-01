@@ -8,6 +8,25 @@
  * 2. data[index] > data[index+1], perform swap operation.
  * 3. Process 'a' goes till the last element.
  *
+ * Tracing Example:
+ * Input Data:
+ *              200	100	50	80	90	10	0	70	20	30
+ *
+ * Iter 1 >>    100	50	80	90	10	0	70	20	30	200
+ * Iter 2 >>    50	80	90	10	0	70	20	30	100	200
+ * Iter 3 >>    50	80	10	0	70	20	30	90	100	200
+ * Iter 4 >>    50	10	0	70	20	30	80	90	100	200
+ * Iter 5 >>    10	0	50	20	30	70	80	90	100	200
+ * Iter 6 >>    0	10	20	30	50	70	80	90	100	200
+ * Iter 7 >>    0	10	20	30	50	70	80	90	100	200
+ *
+ * No more inter-change Stop.
+ *
+ * Time Complexity:
+ *  1. Base Case: O(n)
+ *  2. Average Case: O(n^2)
+ *  3. Worst Case: O(n^2)
+ *
  * By: Santa Basnet
  * Everest Engineering College.
  * Date: 2021-12-09
@@ -73,8 +92,6 @@ struct Element *bubbleSortWith(struct Element *elements, int size, SortingOrder 
     return elements;
 }
 
-
-
 struct Element *initializeData() {
     struct Element *dataElements = (struct Element *) malloc(sizeof(struct Element) * MAX_SIZE);
     (dataElements + 0)->item = 200;
@@ -116,3 +133,19 @@ int main() {
     printf("\n-------------------------------------------------------------\n");
     return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
