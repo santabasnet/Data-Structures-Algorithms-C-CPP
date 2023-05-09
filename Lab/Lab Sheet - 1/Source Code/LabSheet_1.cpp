@@ -146,7 +146,7 @@ int amountOf(string userName) {
     for (auto &user: allUsers) {
         if (user->getName() == userName) return user->amount();
     }
-    return -1;
+    return 0;
 }
 
 string userTypeOf(string userName) {
