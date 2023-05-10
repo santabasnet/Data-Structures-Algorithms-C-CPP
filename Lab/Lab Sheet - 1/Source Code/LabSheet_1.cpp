@@ -131,7 +131,7 @@ void initialize() {
     allUsers[1] = new CorporateUser(2, "eec", licenses1, 15000, 4);
     allUsers[2] = new CorporateUser(3, "pec", licenses2, 10000, 3);
     allUsers[3] = new CorporateUser(4, "kec", licenses3, 25000, 6);
-    allUsers[4] = new IndividualUser(5, "sam", "aXz5", 5000);
+    allUsers[4] = new IndividualUser(5, "sam", "bB39", 5000);
 }
 
 /**
@@ -162,7 +162,7 @@ string findAccessOf(string userName, string licenseKey) {
         if (user->getName() == userName && user->hasKey(licenseKey)) {
             result = true;
             break;
-        };
+        }
     }
     if (result) return "Access Granted.";
     else return "Access Denied !";
