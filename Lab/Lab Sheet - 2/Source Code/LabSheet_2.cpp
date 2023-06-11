@@ -123,10 +123,10 @@ void stackEmptyError() {
 /**
  * Divide by zero Error.
  */
- void divideByZeroError(){
+void divideByZeroError() {
     printf("\nDivide by zero.");
     exit(0);
- }
+}
 
 /**
  * Checks if the input character is of operand or not.
@@ -147,8 +147,14 @@ char *inputExpression;
  */
 void readInputExpression() {
     size_t buffer = 128;
-    printf("\nInput Expression: \n");
-    getline(&inputExpression, &buffer, stdin);
+    //printf("\nInput Expression: \n");
+    //getline(&inputExpression, &buffer, stdin);
+    inputExpression = (char *) malloc(sizeof(char) * buffer);
+    //strcpy(inputExpression, "(a+b*c/d)+e*f-(g*h+i-j)");
+    strcpy(inputExpression, "(a-(b+c-d)^(e+f))");
+    //strcpy(inputExpression, "(k+l-m*n+(o^p)*w/u/v*t+q)");
+    //strcpy(inputExpression, "(q+t*v/u/w*(p^o)+n*m-l+k)");
+    //strcpy(inputExpression, "(x+y*z)");
 }
 
 /**
@@ -179,7 +185,7 @@ int isStackEmpty() {
 }
 
 /**
- * Perform push operation.
+ * Perform push operation on operator stack.
  */
 void push(char inputChar) {
     if (isStackFull()) stackFullError();
@@ -188,7 +194,7 @@ void push(char inputChar) {
 }
 
 /**
- * Perform the pop operation.
+ * Perform the pop operation on operator stack.
  * @return character popped from the stack.
  */
 char pop() {
@@ -235,14 +241,14 @@ void popAndPushOutput(char inputOperator) {
  * Display the input and output states.
  */
 void displayOutputState() {
-    printf("\n%16s | %16s | %16d", expression.operatorStack, expression.postfixExpression, expression.topOfStack);
+    printf("\n%20s | %20s | %20d", expression.operatorStack, expression.postfixExpression, expression.topOfStack);
 }
 
 /**
  * Display the title for the output.
  */
 void displayTitle() {
-    printf("\n%16s | %16s | %16s", "Operator Stack", "Postfix Expression", "Top of Stack");
+    printf("\n%20s | %20s | %20s", "Operator Stack", "Postfix Expression", "Top of Stack");
     printf("\n----------------------------------------------------------------------");
 }
 
